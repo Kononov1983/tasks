@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Задача 2</title>
+  <style>
+    #div {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="div"></div>
+  <script>
+  let div = document.createElement('div');
+
+    div.style.overflowY = scroll;
+    
+    document.body.append(div);
+    let scrollWidth = div.offsetWidth - div.clientWidth;
+    
+    div.remove();
+    
+    alert(scrollWidth);   
+  </script>
+</body>
+</html>

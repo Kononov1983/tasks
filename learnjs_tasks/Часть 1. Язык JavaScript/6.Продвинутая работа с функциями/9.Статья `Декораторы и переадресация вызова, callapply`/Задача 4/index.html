@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <title>Задача 4</title>
+</head>
+<body>
+    <script src="https://ru.js.cx/test/libs.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+
+        function throttle(func, ms) {
+        
+          let isThrottled = false,
+            savedArgs,
+            savedThis;
+        
+          function wrapper() {
+        
+            if (isThrottled) {
+              savedArgs = arguments;
+              savedThis = this;
+              return;
+            }
+
+            func.apply(this, arguments);
+        
+            isThrottled = true;
+            
+            setTimeout(function() {
+              isThrottled = false;
+              if (savedArgs) {
+                
+                wrapper.apply(savedThis, savedArgs);
+                savedArgs = savedThis = null;
+              }
+            }, ms);
+          }
+        
+          return wrapper;
+        }
+      
+      </script>
+</body>
+</html>

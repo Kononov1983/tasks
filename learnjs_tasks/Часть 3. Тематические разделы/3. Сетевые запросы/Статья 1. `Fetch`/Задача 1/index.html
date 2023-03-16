@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Задача 1</title>
+  <meta charset="utf-8">
+  <script src="https://ru.js.cx/test/libs.js"></script>
+</head>
+<body>
+  <script src="js/script.js"></script>
+  <script>
+
+    async function getUsers(names) {
+      let jobs = [];
+    
+      for(let name of names) {
+        let job = fetch(`https://api.github.com/users/${name}`).then(
+          successResponse => {
+            if (successResponse.status != 200) {
+              return null;
+            } else {
+              return successResponse.json();
+            }
+          },
+          failResponse => {
+            return null;
+          }
+        );
+        jobs.push(job);
+      }
+    
+      let results = await Promise.all(jobs);
+    
+      return results;
+    }
+  
+  </script>
+</body>
+</html>
