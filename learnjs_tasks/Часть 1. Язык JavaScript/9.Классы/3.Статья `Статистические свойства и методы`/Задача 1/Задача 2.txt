@@ -1,0 +1,9 @@
+Есть два отличия:
+
+1.class Rabbit	
+–	
+Rabbit.__proto__ === Function.prototype	
+
+2.class Rabbit extends Object
+необходимо вызвать super() в конструкторе
+Rabbit.__proto__ === Object
